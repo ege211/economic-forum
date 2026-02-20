@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Global Economic Advisory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f9;
+    color: #1f2937;
+}
+
+header {
+    background: linear-gradient(135deg, #0b1e3d, #142b55);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 38px;
+}
+
+header p {
+    margin-top: 15px;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+nav {
+    background: #111827;
+    padding: 15px;
+    text-align: center;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: white;
+    margin: 0 18px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+nav button:hover {
+    color: #60a5fa;
+}
+
+.section {
+    display: none;
+    max-width: 1100px;
+    margin: 60px auto;
+    background: white;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.active {
+    display: block;
+}
+
+h2 {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.service-card {
+    background: #f9fafb;
+    padding: 25px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 60px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Global Economic Advisory</h1>
+<p>Data-Driven Strategy • Macroeconomic Research • Policy Insight</p>
+</header>
+
+<nav>
+<button onclick="show('home')">Home</button>
+<button onclick="show('services')">Advisory</button>
+<button onclick="show('research')">Research</button>
+<button onclick="show('dashboard')">Dashboard</button>
+<button onclick="show('contact')">Contact</button>
+</nav>
+
+<div id="home" class="section active">
+<h2>Our Vision</h2>
+<p>Global Economic Advisory provides independent macroeconomic research and strategic economic consulting. Our work integrates data analytics, policy evaluation, and forward-looking economic assessment.</p>
+</div>
+
+<div id="services" class="section">
+<h2>Advisory Services</h2>
+
+<div class="services-grid">
+
+<div class="service-card">
+<h3>Macroeconomic Risk Analysis</h3>
+<p>Inflation modeling, exchange rate risk, and fiscal sustainability assessment.</p>
+</div>
+
+<div class="service-card">
+<h3>Policy Strategy Consulting</h3>
+<p>Evidence-based advisory for monetary and fiscal policy design.</p>
+</div>
+
+<div class="service-card">
+<h3>Market Intelligence Reports</h3>
+<p>Emerging market outlook and country risk evaluation.</p>
+</div>
+
+</div>
+</div>
+
+<div id="research" class="section">
+<h2>Research & Working Papers</h2>
+
+<div style="margin-bottom:40px;">
+
+<strong>Working Paper No. 01 (2026)</strong><br>
+<h3>Inflation Persistence and Monetary Policy Effectiveness</h3>
+
+<button onclick="toggleAbstract('abs1')" 
+style="background:#0b1e3d;color:white;border:none;padding:8px 15px;border-radius:4px;cursor:pointer;">
+View Abstract
+</button>
+
+<div id="abs1" style="display:none;margin-top:15px;">
+<p>
+This paper examines inflation persistence using time-series analysis and evaluates
+the effectiveness of monetary policy under different expectation regimes.
+Empirical results suggest that credibility plays a central role in inflation stabilization.
+</p>
+</div>
+
+<p><strong>Keywords:</strong> Inflation, Monetary Policy, Expectations</p>
+<p><strong>JEL Codes:</strong> E31, E52</p>
+
+<a href="#" 
+style="display:inline-block;margin-top:10px;background:#2563eb;color:white;padding:8px 15px;border-radius:4px;text-decoration:none;">
+Download PDF
+</a>
+
+<hr style="margin-top:30px;">
+</div>
+
+
+<div>
+
+<strong>Working Paper No. 02 (2026)</strong><br>
+<h3>Exchange Rate Pass-Through in Emerging Markets</h3>
+
+<button onclick="toggleAbstract('abs2')" 
+style="background:#0b1e3d;color:white;border:none;padding:8px 15px;border-radius:4px;cursor:pointer;">
+View Abstract
+</button>
+
+<div id="abs2" style="display:none;margin-top:15px;">
+<p>
+This study analyzes exchange rate pass-through effects on domestic price levels
+in emerging markets using panel regression models.
+Results indicate heterogeneous transmission intensity across countries.
+</p>
+</div>
+
+<p><strong>Keywords:</strong> Exchange Rate, Pass-Through, Emerging Markets</p>
+<p><strong>JEL Codes:</strong> F31, E31</p>
+
+<a href="https://github.com/ege211/economic-forum/blob/main/Inflation_Persistence_and_Monetary_Policy_Effectiveness%20(1).pdf" 
+target="_blank"
+style="display:inline-block;margin-top:10px;background:#2563eb;color:white;padding:8px 15px;border-radius:4px;text-decoration:none;">
+View / Download Full Paper
+</a>
+</div>
+
+</div>
+
+<div id="dashboard" class="section">
+<h2>Inflation Dashboard</h2>
+<canvas id="inflationChart"></canvas>
+</div>
+
+<div id="contact" class="section">
+<h2>Contact</h2>
+<p>Email: yourname@email.com</p>
+</div>
+
+<footer>
+© 2026 Global Economic Advisory | Independent Research Platform
+</footer>
+
+<script>
+function show(id){
+    document.querySelectorAll('.section').forEach(sec=>{
+        sec.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+}
+
+async function loadData() {
+  const response = await fetch("https://raw.githubusercontent.com/ege211/economic-forum/main/inflation.csv");
+  const text = await response.text();
+
+  const rows = text.split("\n");
+  const labels = [];
+  const cpiValues = [];
+
+  rows.slice(1).forEach(row => {
+    const cols = row.split(",");
+    if (cols.length > 2 && !isNaN(parseFloat(cols[2]))) {
+      labels.push(cols[0]);
+      cpiValues.push(parseFloat(cols[2]));
+    }
+  });
+
+  const yoyInflation = [];
+  const yoyLabels = [];
+
+  for (let i = 12; i < cpiValues.length; i++) {
+    const rate = ((cpiValues[i] - cpiValues[i - 12]) / cpiValues[i - 12]) * 100;
+      yoyInflation.push(rate.toFixed(2));
+      yoyLabels.push(labels[i]);
+  }
+
+  const ctx = document.getElementById("inflationChart").getContext("2d");
+
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: yoyLabels,
+      datasets: [{
+        label: "Annual Inflation (YoY %)",
+        data: yoyInflation,
+        borderWidth: 2,
+        tension: 0.3
+      }]
+    }
+  });
+}
+
+loadData();
+
+function toggleAbstract(id){
+    const element = document.getElementById(id);
+    if(element.style.display === "none"){
+        element.style.display = "block";
+    } else {
+        element.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
